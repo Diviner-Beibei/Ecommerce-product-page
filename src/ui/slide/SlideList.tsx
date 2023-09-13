@@ -1,5 +1,5 @@
 import SlideItem from "./SlideItem";
-import { useSlide } from "./contexts/SlideContext";
+import { useSlide } from "../../contexts/SlideContext";
 
 interface SlideListProps {
   isFull: boolean;

@@ -1,4 +1,4 @@
-import { useSlide } from "./contexts/SlideContext";
+import { useSlide } from "../../contexts/SlideContext";
 
 interface SlideItemProps {
   img: string;

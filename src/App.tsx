@@ -1,11 +1,14 @@
 import AppLayout from "./ui/AppLayout";
-import { SlideProvider } from "./ui/contexts/SlideContext";
+import { SlideProvider } from "./contexts/SlideContext";
+import { CartProvider } from "./contexts/CartContext";
 
 function App() {
   return (
-    <SlideProvider>
-      <AppLayout />
-    </SlideProvider>
+    <CartProvider>
+      <SlideProvider>
+        <AppLayout />
+      </SlideProvider>
+    </CartProvider>
   );
 }
 

@@ -1,5 +1,5 @@
 import SlideList from "./SlideList";
-import { useSlide } from "./contexts/SlideContext";
+import { useSlide } from "../../contexts/SlideContext";
 
 function Slideshow() {
   const { slideIndex, slideMove, switchFull } = useSlide();

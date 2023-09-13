@@ -3,8 +3,8 @@ import { useState } from "react";
 import Menu from "./Menu";
 import NavBar from "./NavBar";
 import Product from "./Product";
-import FullSlideShow from "./FullSlideShow";
-import { useSlide } from "./contexts/SlideContext";
+import FullSlideShow from "./slide/FullSlideShow";
+import { useSlide } from "../contexts/SlideContext";
 
 function AppLayout() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);

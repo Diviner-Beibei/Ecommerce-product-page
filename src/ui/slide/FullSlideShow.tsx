@@ -1,5 +1,5 @@
 import React from "react";
-import { useSlide } from "./contexts/SlideContext";
+import { useSlide } from "../../contexts/SlideContext";
 import SlideList from "./SlideList";
 
 function FullSlideShow() {
