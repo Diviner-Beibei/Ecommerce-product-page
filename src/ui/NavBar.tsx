@@ -1,7 +1,7 @@
 // import { useState } from "react";
 import Logo from "./Logo";
 import User from "./User";
-import MenuList from "./MenuList";
+import MenuList from "./menu/MenuList";
 import Cart from "./cart/Cart";
 import { useCart } from "../contexts/CartContext";
 
@@ -21,8 +21,8 @@ function NavBar({ switchMenu }: NavBarProps) {
   }
 
   return (
-    <div className="p-5 lg:py-10 lg:px-24">
-      <div className="flex justify-between">
+    <div className="p-5 lg:py-7 lg:px-24">
+      <div className="flex justify-between lg:items-center">
         <div className="flex gap-4 items-center lg:gap-10 lg:items-start">
           <div className="menu open lg:hidden" onClick={switchMenu}>
             <img src="./icon-menu.svg" alt="menu open" />
@@ -32,7 +32,7 @@ function NavBar({ switchMenu }: NavBarProps) {
             <MenuList />
           </div>
         </div>
-        <div className="flex gap-4 items-center lg:gap-10 lg:items-start">
+        <div className="flex gap-4 items-center lg:gap-10 lg:self-center">
           <div className="cart relative" onClick={handleCartClick}>
             {itemCount > 0 && (
               <span className="bg-primary-orange absolute top-[-11px] right-[-12px] font-bold text-white text-[10px] px-[10px] py-[1px] rounded-xl">
@@ -47,7 +47,7 @@ function NavBar({ switchMenu }: NavBarProps) {
         </div>
       </div>
 
-      <div className="hidden h-[1px] bg-[#e4e9f2] lg:block"></div>
+      <div className="hidden h-[1px] mt-6 bg-[#e4e9f2] lg:block"></div>
     </div>
   );
 }

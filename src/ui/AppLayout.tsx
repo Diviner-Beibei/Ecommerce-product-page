@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Menu from "./Menu";
+import Menu from "./menu/Menu";
 import NavBar from "./NavBar";
 import Product from "./Product";
 import FullSlideShow from "./slide/FullSlideShow";
