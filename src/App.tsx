@@ -1,10 +1,11 @@
 import AppLayout from "./ui/AppLayout";
+import { SlideProvider } from "./ui/contexts/SlideContext";
 
 function App() {
   return (
-    <div>
+    <SlideProvider>
       <AppLayout />
-    </div>
+    </SlideProvider>
   );
 }
 

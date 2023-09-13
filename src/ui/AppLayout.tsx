@@ -1,11 +1,14 @@
 import { useState } from "react";
 
-import Menu from "./menu";
+import Menu from "./Menu";
 import NavBar from "./NavBar";
 import Product from "./Product";
+import FullSlideShow from "./FullSlideShow";
+import { useSlide } from "./contexts/SlideContext";
 
 function AppLayout() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const { isOpenFull } = useSlide();
 
   function handleOpenMenu(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     console.log(e.target);
@@ -20,12 +23,14 @@ function AppLayout() {
   return (
     <div className="overflow-hidden relative">
       {isOpenMenu && <Menu switchMenu={handleOpenMenu} />}
+
       <header>
         <NavBar switchMenu={handleOpenMenu} />
       </header>
       <main>
         <Product />
       </main>
+      {isOpenFull && <FullSlideShow />}
     </div>
   );
 }
