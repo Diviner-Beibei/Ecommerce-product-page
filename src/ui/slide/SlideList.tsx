@@ -3,9 +3,10 @@ import { useSlide } from "../../contexts/SlideContext";
 
 interface SlideListProps {
   isFull: boolean;
+  animation: (() => void) | null;
 }
 
-function SlideList({ isFull }: SlideListProps) {
+function SlideList({ isFull, animation }: SlideListProps) {
   const { slideIndex, slideImgs, slideSetNum } = useSlide();
 
   function handleSelectSlide(
@@ -20,6 +21,7 @@ function SlideList({ isFull }: SlideListProps) {
           if (index === slideIndex) return;
 
           slideSetNum(index);
+          if (animation) animation();
         }
       });
     }

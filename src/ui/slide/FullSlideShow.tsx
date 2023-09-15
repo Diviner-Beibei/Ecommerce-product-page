@@ -1,4 +1,5 @@
 import React from "react";
+import { animated, useSpring } from "@react-spring/web";
 import { useSlide } from "../../contexts/SlideContext";
 import SlideList from "./SlideList";
 
@@ -8,6 +9,29 @@ function FullSlideShow() {
   function handleClose(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     const node = (e.target as Element).closest("button");
     if (node) switchFull();
+  }
+
+  const [springs, api] = useSpring(() => ({
+    from: { opacity: 1 },
+    config: {
+      duration: 1000,
+    },
+  }));
+
+  function animation() {
+    api.start({
+      from: {
+        opacity: 0,
+      },
+      to: {
+        opacity: 1,
+      },
+    });
+  }
+
+  function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    slideMove(e);
+    animation();
   }
 
   return (
@@ -25,10 +49,13 @@ function FullSlideShow() {
           </svg>
         </button>
 
-        <div
-          style={{ backgroundImage: `url(./image-product-${slideIndex}.jpg)` }}
-          className={`relative bg-cover flex w-[550px] h-[550px] rounded-xl`}
-          onClick={slideMove}
+        <animated.div
+          style={{
+            backgroundImage: `url(./image-product-${slideIndex}.jpg)`,
+            ...springs,
+          }}
+          className={`relative bg-cover flex w-[550px] h-[550px] rounded-xl will-change-[opacity]`}
+          onClick={handleClick}
         >
           <div className="absolute right-0 top-1/2 translate-x-1/2 w-10 h-10 rounded-full bg-neutral-white  flex items-center justify-center slide next">
             <img src="./icon-next.svg" alt=" next" />
@@ -36,8 +63,8 @@ function FullSlideShow() {
           <div className="absolute left-0 top-1/2 translate-x-[-50%] w-10 h-10 rounded-full bg-neutral-white flex items-center justify-center slide previous">
             <img src="./icon-previous.svg" alt="previous" />
           </div>
-        </div>
-        <SlideList isFull={true} />
+        </animated.div>
+        <SlideList isFull={true} animation={animation} />
       </div>
     </div>
   );

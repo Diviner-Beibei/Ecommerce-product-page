@@ -32,7 +32,7 @@ function Slideshow() {
         </div>
       </div>
 
-      <SlideList isFull={false} />
+      <SlideList isFull={false} animation={null} />
     </div>
   );
 }
